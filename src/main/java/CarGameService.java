@@ -5,12 +5,8 @@ public class CarGameService {
 
     private final ArrayList<Car> cars;
 
-    public CarGameService() {
-        cars = new ArrayList<>();
-    }
-
-    public void addCar(Car car){
-        this.cars.add(car);
+    public CarGameService(ArrayList<Car> cars) {
+        this.cars = cars;
     }
 
     public void play(){
