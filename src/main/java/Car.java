@@ -6,11 +6,11 @@ public class Car {
     // 조건에 따라 전진한다.
 
     private String name;
-    private Long moveCount;
+    private Integer moveCount;
 
     public Car(String name) {
         this.name = name;
-        this.moveCount = 0L;
+        this.moveCount = 0;
     }
 
     public void move(){
@@ -22,5 +22,13 @@ public class Car {
     public boolean isPossible() {
         Random rand = new Random();
         return rand.nextInt(10) >= 4;
+    }
+
+    public Integer getMoveCount() {
+        return moveCount;
+    }
+
+    public String getName() {
+        return name;
     }
 }
