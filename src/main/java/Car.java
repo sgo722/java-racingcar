@@ -21,6 +21,6 @@ public class Car {
 
     public boolean isPossible() {
         Random rand = new Random();
-        return rand.nextInt(9) >= 4;
+        return rand.nextInt(10) >= 4;
     }
 }
