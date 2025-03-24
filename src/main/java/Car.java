@@ -5,17 +5,17 @@ public class Car {
     // 이름을 가진다.
     // 조건에 따라 전진한다.
 
-    private String name;
-    private Integer moveCount;
+    private final String name;
+    private final Count moveCount;
 
     public Car(String name) {
         this.name = name;
-        this.moveCount = 0;
+        this.moveCount = new Count(0);
     }
 
     public void move(){
         if (isPossible()) {
-            moveCount++;
+            moveCount.plusCount();
         }
     }
 
@@ -25,7 +25,7 @@ public class Car {
     }
 
     public Integer getMoveCount() {
-        return moveCount;
+        return moveCount.getCount();
     }
 
     public String getName() {
