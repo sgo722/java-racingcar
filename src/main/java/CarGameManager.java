@@ -11,7 +11,7 @@ public class CarGameManager {
         ArrayList<String> carNames = parseCarName(sc);
 
         OutputMessage.printInputPlayTime();
-        int playTime = sc.nextInt();
+        int playTime = parsePlaytime(sc);
 
         ArrayList<Car> cars = createCars(carNames);
 
@@ -30,6 +30,14 @@ public class CarGameManager {
         Winner winner = new Winner();
         winner.judge(cars);
         winner.printWinners();
+    }
+
+    private int parsePlaytime(Scanner sc) {
+        String input = sc.next();
+        if (input.matches("\\d+")) {
+            return Integer.parseInt(input);
+        }
+        throw new IllegalArgumentException("올바른 숫자를 입력해주세요");
     }
 
     private ArrayList<Car> createCars(ArrayList<String> carNames) {
