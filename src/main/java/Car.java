@@ -5,10 +5,10 @@ public class Car {
     // 이름을 가진다.
     // 조건에 따라 전진한다.
 
-    private final String name;
+    private final Name name;
     private final Count moveCount;
 
-    public Car(String name) {
+    public Car(Name name) {
         this.name = name;
         this.moveCount = new Count(0);
     }
@@ -29,7 +29,7 @@ public class Car {
     }
 
     public String getName() {
-        return name;
+        return name.getName();
     }
 
     public void printCarStatus(){
