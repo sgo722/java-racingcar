@@ -1,3 +1,5 @@
+package domain.car;
+
 public class Count {
 
     private int count;

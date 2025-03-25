@@ -1,3 +1,5 @@
+import domain.game.CarGameManager;
+
 public class CarGameApplication {
     public static void main(String[] args) {
 

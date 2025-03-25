@@ -1,3 +1,8 @@
+package domain.game;
+
+import domain.car.Car;
+import util.OutputMessage;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

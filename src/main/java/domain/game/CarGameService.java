@@ -1,3 +1,7 @@
+package domain.game;
+
+import domain.car.Car;
+
 import java.util.ArrayList;
 
 public class CarGameService {
