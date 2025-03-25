@@ -1,10 +1,10 @@
 package domain.car;
 
-public class Count {
+public class MoveCount {
 
     private int count;
 
-    public Count(int count) {
+    public MoveCount(int count) {
         this.count = count;
     }
 
