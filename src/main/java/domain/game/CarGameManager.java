@@ -1,6 +1,7 @@
 package domain.game;
 
 import domain.car.Car;
+import domain.car.Name;
 import util.OutputMessage;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class CarGameManager {
     private ArrayList<Car> createCars(ArrayList<String> carNames) {
         ArrayList<Car> cars = new ArrayList<>();
         for(String carName : carNames){
-            cars.add(new Car(carName));
+            cars.add(new Car(new Name(carName)));
         }
         return cars;
     }
