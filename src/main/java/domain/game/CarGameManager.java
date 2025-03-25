@@ -1,6 +1,5 @@
 package domain.game;
 
-import domain.car.Car;
 import domain.car.Cars;
 import domain.view.InputView;
 import domain.view.OutputView;
@@ -24,16 +23,16 @@ public class CarGameManager {
     public void run(){
         outputView.printInputCarName();
         ArrayList<String> carNames = inputView.parseCarName();
-
         Cars cars = new Cars(carNames);
 
         outputView.printInputPlayTime();
         int playTime = inputView.parsePlaytime();
 
-
         for(int t=0; t<playTime; t++){
             cars.play();
-            outputView.printCarStatus(cars.getNameToCount());
+
+            HashMap<String, Integer> nameToCount = cars.getNameToCount();
+            outputView.printCarStatus(nameToCount);
         }
 
         result.judge(cars);
