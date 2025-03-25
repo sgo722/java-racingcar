@@ -1,8 +1,6 @@
 package domain.game;
 
-import domain.car.Car;
 import domain.car.Cars;
-import domain.car.Name;
 import domain.view.InputView;
 import domain.view.OutputView;
 
@@ -13,10 +11,12 @@ public class CarGameManager {
 
     private final InputView inputView;
     private final OutputView outputView;
+    private final Result result;
 
-    public CarGameManager(InputView inputView, OutputView outputView) {
+    public CarGameManager(InputView inputView, OutputView outputView, Result result) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.result = result;
     }
 
     public void run(){
@@ -24,7 +24,6 @@ public class CarGameManager {
         ArrayList<String> carNames = inputView.parseCarName();
 
         Cars cars = new Cars(carNames);
-
 
         outputView.printInputPlayTime();
         int playTime = inputView.parsePlaytime();
@@ -35,8 +34,7 @@ public class CarGameManager {
             cars.printResult();
         }
 
-//        Winner winner = new Winner();
-//        winner.judge(cars);
-//        winner.printWinners();
+        result.judge(cars);
+        outputView.printResult(result.getCarNames());
     }
 }

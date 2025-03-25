@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Cars {
 
-    private final ArrayList<Car> cars;
+    private final ArrayList<Car> cars = new ArrayList<>();
 
     public Cars(ArrayList<String> carNames){
-        cars = createCars(carNames);
+        createCars(carNames);
     }
 
     public void play(){
@@ -23,10 +23,13 @@ public class Cars {
         System.out.println();
     }
 
-    private ArrayList<Car> createCars(ArrayList<String> carNames) {
+    public ArrayList<Car> getCars(){
+        return cars;
+    }
+
+    private void createCars(ArrayList<String> carNames) {
         for(String carName : carNames){
             cars.add(new Car(new Name(carName)));
         }
-        return cars;
     }
 }

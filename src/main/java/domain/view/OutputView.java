@@ -1,5 +1,8 @@
 package domain.view;
 
+
+import java.util.ArrayList;
+
 public class OutputView {
     // 메세지를 출력한다.
 
@@ -9,5 +12,18 @@ public class OutputView {
 
     public void printInputPlayTime(){
         System.out.println("시도할 회수는 몇회인가요?");
+    }
+
+
+    public void printResult(ArrayList<String> carNames){
+        for(int i=0; i<carNames.size(); i++){
+            System.out.print("최종 우승자 : ");
+            if(i == carNames.size()-1){
+                System.out.println(carNames);
+            }
+            if(i != carNames.size()-1){
+                System.out.println(carNames + " ,");
+            }
+        }
     }
 }

@@ -1,10 +1,11 @@
 package domain.game;
 
 import domain.car.Car;
+import domain.car.Cars;
 
 import java.util.ArrayList;
 
-public class Winner {
+public class Winner implements Result{
 
     // 우승자를 결정한다.
     private ArrayList<Car> winners;
@@ -13,9 +14,13 @@ public class Winner {
         winners = new ArrayList<>();
     }
 
-    public void judge(ArrayList<Car> cars){
+    private Winner(ArrayList<Car> winners) {
+        this.winners = winners;
+    }
+
+    public void judge(Cars cars){
         int maxMoveCount = 0;
-        for (Car car : cars) {
+        for (Car car : cars.getCars()) {
             int currentCarMoveCount = car.getMoveCount();
             if(maxMoveCount < currentCarMoveCount){
                 winners = new ArrayList<>();
@@ -27,14 +32,12 @@ public class Winner {
         }
     }
 
-    public void printWinners(){
-        for(int i=0; i<winners.size(); i++){
-            System.out.print("최종 우승자 : ");
-            if(i == winners.size()-1){
-                System.out.println(winners.get(i).getName());
-            }else{
-                System.out.println(winners.get(i).getName() + " ,");
-            }
+    public ArrayList<String> getCarNames() {
+        ArrayList<String> carNames = new ArrayList<>();
+        for (Car car : winners) {
+            System.out.println(winners);
+            carNames.add(car.getName());
         }
+        return carNames;
     }
 }
