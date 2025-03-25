@@ -6,8 +6,8 @@ import domain.car.Cars;
 import java.util.ArrayList;
 
 public class Winner implements Result{
+    // 결과를 판단한다(우승자를 판단한다)
 
-    // 우승자를 결정한다.
     private ArrayList<Car> winners;
 
     public Winner() {

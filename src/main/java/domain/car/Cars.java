@@ -3,6 +3,9 @@ package domain.car;
 import java.util.ArrayList;
 
 public class Cars {
+    // 자동차 일급 컬렉션
+    // 자동차들을 가진다.
+    // 자동차 게임을 진행한다.
 
     private final ArrayList<Car> cars = new ArrayList<>();
 
