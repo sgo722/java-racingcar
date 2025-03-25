@@ -4,6 +4,7 @@
 3. Cars 일급 컬렉션 생성
 4. Result 인터페이스 생성
 5. RandomNumberGenerator 객체 생성
+6. OutputView로 출력 기능 분리
 
 
 # 생각하며 피드백 수정

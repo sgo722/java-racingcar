@@ -1,10 +1,12 @@
 package domain.game;
 
+import domain.car.Car;
 import domain.car.Cars;
 import domain.view.InputView;
 import domain.view.OutputView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CarGameManager {
     // 게임을 운영한다.
@@ -31,7 +33,7 @@ public class CarGameManager {
 
         for(int t=0; t<playTime; t++){
             cars.play();
-            cars.printResult();
+            outputView.printCarStatus(cars.getNameToCount());
         }
 
         result.judge(cars);

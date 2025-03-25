@@ -35,7 +35,6 @@ public class Winner implements Result{
     public ArrayList<String> getCarNames() {
         ArrayList<String> carNames = new ArrayList<>();
         for (Car car : winners) {
-            System.out.println(winners);
             carNames.add(car.getName());
         }
         return carNames;

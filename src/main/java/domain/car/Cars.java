@@ -1,6 +1,7 @@
 package domain.car;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Cars {
     // 자동차 일급 컬렉션
@@ -17,17 +18,17 @@ public class Cars {
         cars.forEach(Car::move);
     }
 
-    public void printResult(){
-
-        System.out.println("실행 결과");
-        for(Car car: cars){
-            car.printCarStatus();
-        }
-        System.out.println();
-    }
 
     public ArrayList<Car> getCars(){
         return cars;
+    }
+
+    public HashMap<String, Integer> getNameToCount(){
+        HashMap<String, Integer> nameToCount = new HashMap<>();
+        for (Car car : cars) {
+            nameToCount.put(car.getName(), car.getMoveCount());
+        }
+        return nameToCount;
     }
 
     private void createCars(ArrayList<String> carNames) {

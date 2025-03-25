@@ -2,6 +2,7 @@ package domain.view;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class OutputView {
     // 메세지를 출력한다.
@@ -16,14 +17,28 @@ public class OutputView {
 
 
     public void printResult(ArrayList<String> carNames){
+        int lastIdx = carNames.size()-1;
+
         for(int i=0; i<carNames.size(); i++){
             System.out.print("최종 우승자 : ");
-            if(i == carNames.size()-1){
+            if(i == lastIdx){
                 System.out.println(carNames);
             }
-            if(i != carNames.size()-1){
+            if(i != lastIdx){
                 System.out.println(carNames + " ,");
             }
         }
+    }
+
+    public void printCarStatus(HashMap<String, Integer> nameToMoveCount){
+        System.out.println("실행 결과");
+        for(String carName : nameToMoveCount.keySet()){
+            System.out.print(carName + " : ");
+            for(int i = 0; i < nameToMoveCount.get(carName); i++){
+                System.out.print("-");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }

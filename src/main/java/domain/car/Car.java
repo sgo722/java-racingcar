@@ -29,12 +29,4 @@ public class Car {
     public String getName() {
         return name.getName();
     }
-
-    public void printCarStatus(){
-        System.out.print(name.getName() + " : ");
-        for(int i = 0; i < getMoveCount(); i++){
-            System.out.print("-");
-        }
-        System.out.println();
-    }
 }
