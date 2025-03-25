@@ -2,7 +2,8 @@ package domain.game;
 
 import domain.car.Car;
 import domain.car.Name;
-import util.OutputMessage;
+import domain.view.InputMessage;
+import domain.view.OutputMessage;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,16 +11,25 @@ import java.util.Scanner;
 public class CarGameManager {
     // 게임을 운영한다.
 
+    private final InputMessage inputMessage;
+    private final OutputMessage outputMessage;
+
+    public CarGameManager(InputMessage inputMessage, OutputMessage outputMessage) {
+        this.inputMessage = inputMessage;
+        this.outputMessage = outputMessage;
+    }
+
     public void run(){
         Scanner sc = new Scanner(System.in);
 
-        OutputMessage.printInputCarName();
-        ArrayList<String> carNames = parseCarName(sc);
+        outputMessage.printInputCarName();
+        ArrayList<String> carNames = inputMessage.parseCarName();
 
-        OutputMessage.printInputPlayTime();
-        int playTime = parsePlaytime(sc);
 
         ArrayList<Car> cars = createCars(carNames);
+
+        outputMessage.printInputPlayTime();
+        int playTime = inputMessage.parsePlaytime();
 
         CarGameService carGameService = new CarGameService(cars);
 
@@ -36,28 +46,6 @@ public class CarGameManager {
         Winner winner = new Winner();
         winner.judge(cars);
         winner.printWinners();
-    }
-
-    private ArrayList<String> parseCarName(Scanner sc) {
-        String input = sc.nextLine();
-
-
-        ArrayList<String> carNames = new ArrayList<>();
-
-        String[] tokens = input.split(",");
-        for(String carName : tokens) {
-            carNames.add(carName);
-        }
-
-        return carNames;
-    }
-
-    private int parsePlaytime(Scanner sc) {
-        String input = sc.next();
-        if (input.matches("\\d+")) {
-            return Integer.parseInt(input);
-        }
-        throw new IllegalArgumentException("올바른 숫자를 입력해주세요");
     }
 
     private ArrayList<Car> createCars(ArrayList<String> carNames) {
