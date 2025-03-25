@@ -2,8 +2,8 @@ package domain.game;
 
 import domain.car.Car;
 import domain.car.Name;
-import domain.view.InputMessage;
-import domain.view.OutputMessage;
+import domain.view.InputView;
+import domain.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -11,25 +11,25 @@ import java.util.Scanner;
 public class CarGameManager {
     // 게임을 운영한다.
 
-    private final InputMessage inputMessage;
-    private final OutputMessage outputMessage;
+    private final InputView inputView;
+    private final OutputView outputView;
 
-    public CarGameManager(InputMessage inputMessage, OutputMessage outputMessage) {
-        this.inputMessage = inputMessage;
-        this.outputMessage = outputMessage;
+    public CarGameManager(InputView inputView, OutputView outputView) {
+        this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public void run(){
         Scanner sc = new Scanner(System.in);
 
-        outputMessage.printInputCarName();
-        ArrayList<String> carNames = inputMessage.parseCarName();
+        outputView.printInputCarName();
+        ArrayList<String> carNames = inputView.parseCarName();
 
 
         ArrayList<Car> cars = createCars(carNames);
 
-        outputMessage.printInputPlayTime();
-        int playTime = inputMessage.parsePlaytime();
+        outputView.printInputPlayTime();
+        int playTime = inputView.parsePlaytime();
 
         CarGameService carGameService = new CarGameService(cars);
 

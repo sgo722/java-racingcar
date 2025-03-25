@@ -3,7 +3,7 @@ package domain.view;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class InputMessage {
+public class InputView {
 
     public ArrayList<String> parseCarName() {
         Scanner sc = new Scanner(System.in);

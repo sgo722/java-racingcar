@@ -1,6 +1,6 @@
 package domain.view;
 
-public class OutputMessage {
+public class OutputView {
     // 메세지를 출력한다.
 
     public void printInputCarName(){
