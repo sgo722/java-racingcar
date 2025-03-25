@@ -38,6 +38,20 @@ public class CarGameManager {
         winner.printWinners();
     }
 
+    private ArrayList<String> parseCarName(Scanner sc) {
+        String input = sc.nextLine();
+
+
+        ArrayList<String> carNames = new ArrayList<>();
+
+        String[] tokens = input.split(",");
+        for(String carName : tokens) {
+            carNames.add(carName);
+        }
+
+        return carNames;
+    }
+
     private int parsePlaytime(Scanner sc) {
         String input = sc.next();
         if (input.matches("\\d+")) {
@@ -52,19 +66,5 @@ public class CarGameManager {
             cars.add(new Car(new Name(carName)));
         }
         return cars;
-    }
-
-    private ArrayList<String> parseCarName(Scanner sc) {
-        String input = sc.nextLine();
-
-
-        ArrayList<String> carNames = new ArrayList<>();
-
-        String[] tokens = input.split(",");
-        for(String carName : tokens) {
-            carNames.add(carName);
-        }
-
-        return carNames;
     }
 }
