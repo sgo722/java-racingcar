@@ -20,11 +20,8 @@ public class CarGameManager {
     }
 
     public void run(){
-        Scanner sc = new Scanner(System.in);
-
         outputView.printInputCarName();
         ArrayList<String> carNames = inputView.parseCarName();
-
 
         ArrayList<Car> cars = createCars(carNames);
 
