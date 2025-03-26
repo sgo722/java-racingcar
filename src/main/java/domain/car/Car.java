@@ -7,6 +7,11 @@ public class Car {
     private final Name name;
     private final MoveCount moveCount;
 
+    public Car(Name name){
+        this.name = name;
+        this.moveCount = new MoveCount(0);
+    }
+
     public Car(Name name, MoveCount moveCount) {
         this.name = name;
         this.moveCount = moveCount;
@@ -16,8 +21,8 @@ public class Car {
         return new Car(this.name, moveCount.move());
     }
 
-    public Integer getMoveCount() {
-        return moveCount.getCount();
+    public int getMoveCount() {
+        return moveCount.getMoveCount();
     }
 
     public String getName() {

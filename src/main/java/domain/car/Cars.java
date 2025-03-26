@@ -41,10 +41,6 @@ public class Cars {
         return winners;
     }
 
-    public ArrayList<Car> getCars(){
-        return cars;
-    }
-
     public HashMap<String, Integer> getNameToCount(){
         HashMap<String, Integer> nameToCount = new HashMap<>();
         for (Car car : cars) {

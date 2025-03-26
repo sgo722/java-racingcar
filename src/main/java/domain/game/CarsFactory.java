@@ -13,7 +13,7 @@ public class CarsFactory {
         ArrayList<Car> cars = new ArrayList<>();
 
         for(String carName : carNames){
-            cars.add(new Car(new Name(carName), new MoveCount()));
+            cars.add(new Car(new Name(carName)));
         }
         return new Cars(cars);
     }
