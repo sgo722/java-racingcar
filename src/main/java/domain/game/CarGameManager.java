@@ -15,40 +15,49 @@ public class CarGameManager {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private final Result result;
 
-    public CarGameManager(InputView inputView, OutputView outputView, Result result) {
+    public CarGameManager(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.result = result;
     }
 
     public void run(){
-        outputView.printInputCarName();
-        ArrayList<String> carNames = inputView.parseCarName();
+        Cars cars = setUpCars();
 
-        Cars cars = new Cars(createCars(carNames));
-
-        outputView.printInputPlayTime();
-        int playTime = inputView.parsePlaytime();
+        int playTime = setUpPlayTime();
 
         for(int t=0; t<playTime; t++){
             cars = new Cars(cars.play());
 
-            HashMap<String, Integer> nameToCount = cars.getNameToCount();
-            outputView.printCarStatus(nameToCount);
+            printResult(cars);
         }
 
-        result.judge(cars);
-        outputView.printResult(result.getCarNames());
+
+        printWinner(cars);
     }
 
-    private ArrayList<Car> createCars(ArrayList<String> carNames) {
-        ArrayList<Car> cars = new ArrayList<>();
 
-        for(String carName : carNames){
-            cars.add(new Car(new Name(carName), new MoveCount()));
-        }
+    private void printResult(Cars cars) {
+        HashMap<String, Integer> nameToCount = cars.getNameToCount();
+        outputView.printCarStatus(nameToCount);
+    }
+
+    private int setUpPlayTime() {
+        outputView.printInputPlayTime();
+        int playTime = inputView.parsePlaytime();
+        return playTime;
+    }
+
+    private Cars setUpCars() {
+        outputView.printInputCarName();
+        ArrayList<String> carNames = inputView.parseCarName();
+
+        Cars cars = new CarsFactory().createCars(carNames);
         return cars;
+    }
+
+
+    private void printWinner(Cars cars) {
+        outputView.printWinner(cars.getWinner());
     }
 }

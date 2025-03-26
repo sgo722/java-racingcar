@@ -23,6 +23,23 @@ public class Cars {
         return playedCars;
     }
 
+    public ArrayList<String> getWinner(){
+        int maxMoveCount = 0;
+        ArrayList<String> winners = new ArrayList<>();
+
+        for (Car car : cars) {
+            int currentCarMoveCount = car.getMoveCount();
+            if(maxMoveCount < currentCarMoveCount){
+                winners = new ArrayList<>();
+                winners.add(car.getName());
+                maxMoveCount = currentCarMoveCount;
+            }else if(maxMoveCount == currentCarMoveCount){
+                winners.add(car.getName());
+            }
+        }
+
+        return winners;
+    }
 
     public ArrayList<Car> getCars(){
         return cars;
@@ -35,4 +52,5 @@ public class Cars {
         }
         return nameToCount;
     }
+
 }

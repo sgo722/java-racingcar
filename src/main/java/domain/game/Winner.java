@@ -5,36 +5,24 @@ import domain.car.Cars;
 
 import java.util.ArrayList;
 
-public class Winner implements Result{
+public class Winner{
     // 결과를 판단한다(우승자를 판단한다)
 
-    private ArrayList<Car> winners;
+    private final ArrayList<Car> winner;
 
-    public Winner() {
-        winners = new ArrayList<>();
+    public Winner(Cars cars){
+        winner = judge(cars);
     }
 
-    private Winner(ArrayList<Car> winners) {
-        this.winners = winners;
+    private ArrayList<Car> judge(Cars cars){
+        return cars.getWinner();
     }
 
-    public void judge(Cars cars){
-        int maxMoveCount = 0;
-        for (Car car : cars.getCars()) {
-            int currentCarMoveCount = car.getMoveCount();
-            if(maxMoveCount < currentCarMoveCount){
-                winners = new ArrayList<>();
-                winners.add(car);
-                maxMoveCount = currentCarMoveCount;
-            }else if(maxMoveCount == currentCarMoveCount){
-                winners.add(car);
-            }
-        }
-    }
 
     public ArrayList<String> getCarNames() {
         ArrayList<String> carNames = new ArrayList<>();
-        for (Car car : winners) {
+
+        for (Car car : winner) {
             carNames.add(car.getName());
         }
         return carNames;

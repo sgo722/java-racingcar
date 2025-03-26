@@ -16,7 +16,7 @@ public class OutputView {
     }
 
 
-    public void printResult(ArrayList<String> carNames){
+    public void printWinner(ArrayList<String> carNames){
         int lastIdx = carNames.size()-1;
 
         for(int i=0; i<carNames.size(); i++){
