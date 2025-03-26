@@ -32,14 +32,16 @@ public class CarGameManager {
             printResult(cars);
         }
 
-
         printWinner(cars);
     }
 
 
-    private void printResult(Cars cars) {
-        HashMap<String, Integer> nameToCount = cars.getNameToCount();
-        outputView.printCarStatus(nameToCount);
+    private Cars setUpCars() {
+        outputView.printInputCarName();
+        ArrayList<String> carNames = inputView.parseCarName();
+
+        Cars cars = new CarsFactory().createCars(carNames);
+        return cars;
     }
 
     private int setUpPlayTime() {
@@ -48,12 +50,9 @@ public class CarGameManager {
         return playTime;
     }
 
-    private Cars setUpCars() {
-        outputView.printInputCarName();
-        ArrayList<String> carNames = inputView.parseCarName();
-
-        Cars cars = new CarsFactory().createCars(carNames);
-        return cars;
+    private void printResult(Cars cars) {
+        HashMap<String, Integer> nameToCount = cars.getNameToCount();
+        outputView.printCarStatus(nameToCount);
     }
 
 
