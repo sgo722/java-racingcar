@@ -1,8 +1,11 @@
 package domain.game;
 
+import domain.car.Car;
 import domain.car.Cars;
-import domain.view.InputView;
-import domain.view.OutputView;
+import domain.car.MoveCount;
+import domain.car.Name;
+import view.InputView;
+import view.OutputView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,13 +26,14 @@ public class CarGameManager {
     public void run(){
         outputView.printInputCarName();
         ArrayList<String> carNames = inputView.parseCarName();
-        Cars cars = new Cars(carNames);
+
+        Cars cars = new Cars(createCars(carNames));
 
         outputView.printInputPlayTime();
         int playTime = inputView.parsePlaytime();
 
         for(int t=0; t<playTime; t++){
-            cars.play();
+            cars = new Cars(cars.play());
 
             HashMap<String, Integer> nameToCount = cars.getNameToCount();
             outputView.printCarStatus(nameToCount);
@@ -37,5 +41,14 @@ public class CarGameManager {
 
         result.judge(cars);
         outputView.printResult(result.getCarNames());
+    }
+
+    private ArrayList<Car> createCars(ArrayList<String> carNames) {
+        ArrayList<Car> cars = new ArrayList<>();
+
+        for(String carName : carNames){
+            cars.add(new Car(new Name(carName), new MoveCount()));
+        }
+        return cars;
     }
 }

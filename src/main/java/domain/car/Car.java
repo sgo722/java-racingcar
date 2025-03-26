@@ -2,23 +2,18 @@ package domain.car;
 
 public class Car {
     // 이름을 가진다.
-    // 조건에 따라 전진한다.
-    private final int CAN_MOVE = 4;
+    // 전진한다.
 
     private final Name name;
     private final MoveCount moveCount;
-    private final RandomNumberGenerator randomNumberGenerator;
 
-    public Car(Name name) {
+    public Car(Name name, MoveCount moveCount) {
         this.name = name;
-        this.moveCount = new MoveCount(0);
-        this.randomNumberGenerator = new RandomNumberGenerator();
+        this.moveCount = moveCount;
     }
 
-    public void move(){
-        if (randomNumberGenerator.getNumber() >= CAN_MOVE) {
-            moveCount.plusCount();
-        }
+    public Car move(){
+        return new Car(this.name, moveCount.move());
     }
 
     public Integer getMoveCount() {

@@ -1,7 +1,7 @@
 import domain.game.CarGameManager;
 import domain.game.Winner;
-import domain.view.InputView;
-import domain.view.OutputView;
+import view.InputView;
+import view.OutputView;
 
 public class CarGameApplication {
     public static void main(String[] args) {
