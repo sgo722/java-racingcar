@@ -1,5 +1,4 @@
 import domain.game.CarGameManager;
-import domain.game.Winner;
 import view.InputView;
 import view.OutputView;
 
