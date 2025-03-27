@@ -7,7 +7,6 @@ public class Cars {
     // 자동차 일급 컬렉션
     // 자동차들을 가진다.
     // 자동차 게임을 진행한다.
-
     private final ArrayList<Car> cars;
 
     public Cars(ArrayList<Car> cars){
@@ -46,7 +45,7 @@ public class Cars {
         for (Car car : cars) {
             nameToCount.put(car.getName(), car.getMoveCount());
         }
+
         return nameToCount;
     }
-
 }

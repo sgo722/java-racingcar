@@ -7,8 +7,6 @@ public class Name {
     private final int NAME_MAX_LENGTH = 5;
     private final int NAME_MIN_LENGTH = 1;
 
-
-
     private final String name;
 
     public Name(String name) {

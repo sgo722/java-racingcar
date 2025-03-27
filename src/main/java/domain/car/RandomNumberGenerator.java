@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class RandomNumberGenerator {
     // 랜덤한 숫자를 생성한다.
-
     private final int MAX_RANDOM_NUMBER = 9;
 
     private final Random random;

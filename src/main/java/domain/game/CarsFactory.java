@@ -2,7 +2,6 @@ package domain.game;
 
 import domain.car.Car;
 import domain.car.Cars;
-import domain.car.MoveCount;
 import domain.car.Name;
 
 import java.util.ArrayList;
@@ -15,6 +14,7 @@ public class CarsFactory {
         for(String carName : carNames){
             cars.add(new Car(new Name(carName)));
         }
+
         return new Cars(cars);
     }
 
