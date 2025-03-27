@@ -21,7 +21,7 @@ public class Name {
     }
 
     private void validateLength(String name){
-        if(NAME_MIN_LENGTH <= name.length() && name.length() <=  NAME_MAX_LENGTH){
+        if(name.length() < NAME_MIN_LENGTH || name.length() >  NAME_MAX_LENGTH){
             throw new IllegalArgumentException(INVALID_NAME_LENGTH);
         }
     }
