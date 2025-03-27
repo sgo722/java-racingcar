@@ -6,6 +6,7 @@ import view.OutputView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class CarGameManager {
     // 게임을 운영한다.
@@ -46,7 +47,7 @@ public class CarGameManager {
     }
 
     private void printResult(Cars cars) {
-        HashMap<String, Integer> nameToCount = cars.getNameToCount();
+        Map<String, Integer> nameToCount = cars.getNameToCount();
         outputView.printCarStatus(nameToCount);
     }
 

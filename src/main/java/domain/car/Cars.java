@@ -2,14 +2,16 @@ package domain.car;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Cars {
     // 자동차 일급 컬렉션
     // 자동차들을 가진다.
     // 자동차 게임을 진행한다.
-    private final ArrayList<Car> cars;
+    private final List<Car> cars;
 
-    public Cars(ArrayList<Car> cars){
+    public Cars(List<Car> cars){
         this.cars = cars;
     }
 
@@ -22,7 +24,7 @@ public class Cars {
         return playedCars;
     }
 
-    public ArrayList<String> getWinner(){
+    public List<String> getWinner(){
         int maxMoveCount = 0;
         ArrayList<String> winners = new ArrayList<>();
 
@@ -40,8 +42,8 @@ public class Cars {
         return winners;
     }
 
-    public HashMap<String, Integer> getNameToCount(){
-        HashMap<String, Integer> nameToCount = new HashMap<>();
+    public Map<String, Integer> getNameToCount(){
+        Map<String, Integer> nameToCount = new HashMap<>();
         for (Car car : cars) {
             nameToCount.put(car.getName(), car.getMoveCount());
         }

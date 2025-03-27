@@ -15,14 +15,15 @@ public class Name {
     }
 
     private void validate(String name) {
-        validateLength(name);
-        validateIsNotEmpty(name);
         validateIsNotNull(name);
+        validateIsNotEmpty(name);
+        validateLength(name);
     }
 
-    private void validateLength(String name){
-        if(name.length() < NAME_MIN_LENGTH || name.length() >  NAME_MAX_LENGTH){
-            throw new IllegalArgumentException(INVALID_NAME_LENGTH);
+
+    private void validateIsNotNull(String name){
+        if(name == null){
+            throw new IllegalArgumentException(NAME_IS_NOT_NULL);
         }
     }
 
@@ -32,11 +33,12 @@ public class Name {
         }
     }
 
-    private void validateIsNotNull(String name){
-        if(name == null){
-            throw new IllegalArgumentException(NAME_IS_NOT_NULL);
+    private void validateLength(String name){
+        if(name.length() < NAME_MIN_LENGTH || name.length() >  NAME_MAX_LENGTH){
+            throw new IllegalArgumentException(INVALID_NAME_LENGTH);
         }
     }
+
     public String getName() {
         return name;
     }
