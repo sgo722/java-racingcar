@@ -11,6 +11,11 @@ public class MoveCount {
         this.moveStrategy = new MoveStrategy();
     }
 
+    public MoveCount(int moveCount, MoveStrategy moveStrategy) {
+        this.moveCount = moveCount;
+        this.moveStrategy = moveStrategy;
+    }
+
     public MoveCount move(){
         if(moveStrategy.canMove()){
             return new MoveCount(moveCount + 1);

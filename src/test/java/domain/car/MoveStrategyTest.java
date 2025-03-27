@@ -69,7 +69,7 @@ class MoveStrategyTest {
         Assertions.assertThat(result).isEqualTo(expected);
     }
 
-    private class FixedNumberGenerator extends RandomNumberGenerator{
+    private static class FixedNumberGenerator extends RandomNumberGenerator{
 
         private final int number;
 
