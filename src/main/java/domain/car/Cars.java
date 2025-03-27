@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static util.ErrorCode.*;
+
 public class Cars {
     // 자동차 일급 컬렉션
     // 자동차들을 가진다.

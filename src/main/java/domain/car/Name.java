@@ -23,13 +23,13 @@ public class Name {
 
     private void validateIsNotNull(String name){
         if(name == null){
-            throw new IllegalArgumentException(NAME_IS_NOT_NULL);
+            throw new IllegalArgumentException(NAME_IS_NULL);
         }
     }
 
     private void validateIsNotEmpty(String name){
         if(name.isEmpty()){
-            throw new IllegalArgumentException(NAME_IS_NOT_EMPTY);
+            throw new IllegalArgumentException(NAME_IS_EMPTY);
         }
     }
 

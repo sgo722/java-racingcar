@@ -9,7 +9,12 @@ public class ErrorCode {
 
     // Name
     public static final String INVALID_NAME_LENGTH = "[ERROR] 자동차 이름은 1글자 이상 5글자 이하여야 합니다.";
-    public static final String NAME_IS_NOT_EMPTY = "[ERROR] 자동차 이름은 1글자 이상 5글자 이하여야 합니다.";
-    public static final String NAME_IS_NOT_NULL = "[ERROR] 자동차 이름이 null일 수 없습니다.";
+    public static final String NAME_IS_EMPTY = "[ERROR] 자동차 이름은 1글자 이상 5글자 이하여야 합니다.";
+    public static final String NAME_IS_NULL = "[ERROR] 자동차 이름이 null일 수 없습니다.";
+
+    // Cars
+    public static final String CARS_IS_EMPTY = "[ERROR] 자동차는 최소 한 대 이상 존재해야 합니다.";
+    public static final String CARS_IS_NULL = "[ERROR] 자동차 목록은 null일 수 없습니다..";
+
 
 }
