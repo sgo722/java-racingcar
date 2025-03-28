@@ -3,7 +3,6 @@ package domain.car;
 public class Car {
     // 이름을 가진다.
     // 전진한다.
-
     private final Name name;
     private final MoveCount moveCount;
 

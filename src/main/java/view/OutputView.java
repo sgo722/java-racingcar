@@ -1,8 +1,9 @@
 package view;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class OutputView {
     // 메세지를 출력한다.
@@ -16,7 +17,7 @@ public class OutputView {
     }
 
 
-    public void printWinner(ArrayList<String> carNames){
+    public void printWinner(List<String> carNames){
         int lastIdx = carNames.size()-1;
 
         for(int i=0; i<carNames.size(); i++){
@@ -30,7 +31,7 @@ public class OutputView {
         }
     }
 
-    public void printCarStatus(HashMap<String, Integer> nameToMoveCount){
+    public void printCarStatus(Map<String, Integer> nameToMoveCount){
         System.out.println("실행 결과");
         for(String carName : nameToMoveCount.keySet()){
             System.out.print(carName + " : ");
